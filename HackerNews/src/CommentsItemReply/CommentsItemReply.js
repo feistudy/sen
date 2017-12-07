@@ -6,12 +6,13 @@ class CommentsItemReply extends Component {
     return (
       this.props.item.hasOwnProperty('kids') && Array.isArray(this.props.item.kids) ?
         this.props.item.kids.map((kid, index) =>
-          kid === null || (kid.hasOwnProperty('deleted') && kid.deleted) ?
+          kid === null || (kid.hasOwnProperty('deleted') && kid.deleted)
+          || (kid.hasOwnProperty('dead') && kid.dead) ?
             <div key={index}></div>
           :
-            <div className="pl-3" key={index}>
+            <div className="pl-2" key={index}>
               <small className="text-muted">{kid.by} | {moment.unix(kid.time).fromNow()}</small><br/>
-              <div id="text" dangerouslySetInnerHTML={{__html: kid.text}}/>
+              <small><div id="text" dangerouslySetInnerHTML={{__html: kid.text}}/></small>
               
               <CommentsItemReply item={kid} />
             </div>

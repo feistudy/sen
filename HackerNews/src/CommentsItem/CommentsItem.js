@@ -60,9 +60,9 @@ class CommentsItem extends Component {
 
   render() {
     return (
-      <div className="pl-3">
+      <div className="pl-2">
         <small className="text-muted">{this.props.item.by} | {moment.unix(this.props.item.time).fromNow()}</small><br/>
-        <div id="text" dangerouslySetInnerHTML={{__html: this.props.item.text}}/>
+        <small><div id="text" dangerouslySetInnerHTML={{__html: this.props.item.text}}/></small>
         {
           this.props.item.hasOwnProperty('kids') ?
             this.state.showReplyStatus === 'NO' ?

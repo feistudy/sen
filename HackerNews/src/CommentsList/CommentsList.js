@@ -104,7 +104,8 @@ class CommentsList extends Component {
         {
           this.state.item.hasOwnProperty('kids') && Array.isArray(this.state.item.kids) ?
             this.state.item.kids.map((kid, index) =>
-              kid === null || (kid.hasOwnProperty('deleted') && kid.deleted) ?
+              kid === null || (kid.hasOwnProperty('deleted') && kid.deleted)
+              || (kid.hasOwnProperty('dead') && kid.dead) ?
                 <div key={index}></div>
               :
                 <CommentsItem key={index} item={kid} />

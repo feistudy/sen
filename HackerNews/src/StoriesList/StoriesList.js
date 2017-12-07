@@ -42,7 +42,9 @@ class StoriesList extends Component {
           isLoadingMore: true,
         });
 
-        await this.loadMoreStories();
+        try {
+          await this.loadMoreStories();
+        } catch (error) { return; }
 
         this.setState({
           isLoadingMore: false,
